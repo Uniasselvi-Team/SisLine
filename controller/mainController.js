@@ -1,6 +1,6 @@
 class mainController {
     static main (req, res) {
-        res.render('main/main', {layout: 'main'})
+        res.render('main/home', {layout: 'main'})
     }
 }
 

@@ -18,6 +18,9 @@ body {
 }
 
 .login-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 400px;
   width: 100%;
   background: #fff;
@@ -111,3 +114,10 @@ body {
   color: #007bff;
  
 }
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

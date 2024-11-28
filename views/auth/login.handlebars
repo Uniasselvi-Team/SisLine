@@ -1,46 +1,51 @@
+<div class="login-box">
 
-      <div class="login-box">
-        <form class="login-form">
-          <div class="header">
-            <h3>Sign in</h3>
-            <p>Sign in to your account and explore a world of possibilities. Your journey begins here.</p>
-          </div>
+  {{#if messages.message}}
+    <div class="message">
+      {{messages.message}}
+    </div>
+  {{/if}}
 
-          <div class="input-group">
-            <label for="username">User name</label>
-            <div class="input-wrapper">
-              <input id="username" name="username" type="text" placeholder="Enter user name" required>
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24">
-                <!-- SVG content -->
-              </svg>
-            </div>
-          </div>
+  <form class="login-form" action="/login" method="post">
+    <div class="header">
+      <h3>Sign in</h3>
+      <p>Sign in to your account and explore a world of possibilities. Your journey begins here.</p>
+    </div>
 
-          <div class="input-group">
-            <label for="password">Password</label>
-            <div class="input-wrapper">
-              <input id="password" name="password" type="password" placeholder="Enter password" required>
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 128 128">
-                <!-- SVG content -->
-              </svg>
-            </div>
-          </div>
-
-          <div class="options">
-            <div class="remember-me">
-              <input id="remember-me" type="checkbox">
-              <label for="remember-me">Remember me</label>
-            </div>
-            <a href="./reset" class="forgot-password">Forgot your password?</a>
-          </div>
-
-          <div class="actions">
-            <button type="submit" class="login-button">Log in</button>
-            <p class="register">
-              Don't have an account? 
-              <a href="/register">Register here</a>
-            </p>
-          </div>
-        </form>
+    <div class="input-group">
+      <label for="userCode">User Code</label>
+      <div class="input-wrapper">
+        <input id="userCode" name="userCode" type="text" placeholder="Enter user code" required>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24">
+          <!-- SVG content -->
+        </svg>
       </div>
- 
+    </div>
+
+    <div class="input-group">
+      <label for="password">Password</label>
+      <div class="input-wrapper">
+        <input id="password" name="password" type="password" placeholder="Enter password" required>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 128 128">
+          <!-- SVG content -->
+        </svg>
+      </div>
+    </div>
+
+    <div class="options">
+      <div class="remember-me">
+        <input id="remember-me" type="checkbox">
+        <label for="remember-me">Remember me</label>
+      </div>
+      <a href="./reset" class="forgot-password">Forgot your password?</a>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="login-button">Log in</button>
+      <p class="register">
+        Don't have an account? 
+        <a href="/register">Register here</a>
+      </p>
+    </div>
+  </form>
+</div>

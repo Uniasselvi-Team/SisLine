@@ -5,8 +5,6 @@ class authLogin {
         res.render('auth/login', {layout: 'main'})
     }
 
-
-
 }
 
 class authRegister {
@@ -15,4 +13,11 @@ class authRegister {
     }
 }
 
-module.exports = {authLogin, authRegister};
+class authReset {
+
+    static resetPage (req, res) {
+        res.render('auth/reset', {layout: 'main'})
+    }
+}
+
+module.exports = {authLogin, authRegister, authReset};

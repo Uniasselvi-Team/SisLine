@@ -19,6 +19,7 @@ body {
 
 .login-box {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   max-width: 400px;
@@ -37,6 +38,11 @@ body {
 }
 
 /* Form styles */
+
+.login-form {
+  width: 350px;
+  max-width: 100%;
+}
 .login-form .header {
   margin-bottom: 24px;
 }
@@ -119,5 +125,26 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
+.back-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+}

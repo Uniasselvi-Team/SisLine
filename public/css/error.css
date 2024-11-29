@@ -1,0 +1,12 @@
+* {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50%;
+  }
+
+  img {
+    height: auto;
+    width: 320px;
+  }

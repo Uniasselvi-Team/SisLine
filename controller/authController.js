@@ -20,4 +20,13 @@ class authReset {
     }
 }
 
-module.exports = {authLogin, authRegister, authReset};
+class authError {
+
+    static errorPage (req, res) {
+        res.render('auth/error', {layout: 'error'})
+    }
+}
+
+
+
+module.exports = {authLogin, authRegister, authReset, authError};

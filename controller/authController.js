@@ -23,22 +23,21 @@ class authLogin {
         const passwordMatch = bcrypt.compareSync(password, user.password)
         if (!passwordMatch) {
             req.flash('message', 'Senha inválida. Tente novamente.')
-            res.render('auth/login', {layout: 'user'});
+            res.render('auth/login', {layout: 'main'});
             return
         }
 
-        // Verifica se o usuário possui ocupação. Se não tiver, não está aprovado no sistema, portanto será redirecionado para tal página.
-        const useroccupation = await User.findOne({where: {userCode: userCode}})
-        if (useroccupation.occupation == null) {
-            res.render('auth/auth', {layout: 'auth'})
+        /* Verifica se o usuário possui ocupação. Se não tiver, não está aprovado no sistema, portanto será redirecionado para tal página.
+        if (user.role == 'user') {
+            res.render('auth/error', {layout: 'error'})
         }
+        */
 
         // Se o código e senha estiverem corretos, logar no sistema
         req.session.userid = user.id
         req.session.save()
 
-        const usuario = await User.findOne({where: {userCode: userCode}})
-        res.render('dashboard/dashboard', {usuario})
+        res.render('dashboard/dashboard', {user})
     }
 
 }
@@ -69,10 +68,7 @@ class authRegister {
             userCode: Math.floor(Math.random()*10000),
             name,
             email,
-            password: hashedPassword,
-            role: null,
-            createdAt: now(),
-            updatedAt: null
+            password: hashedPassword
         }
 
         try {

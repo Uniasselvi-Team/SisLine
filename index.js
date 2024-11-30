@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const exphbs = require('express-handlebars');
-const path = require('path');
 
 const session = require('express-session')
 const FileStore = require('session-file-store')(session);
@@ -48,8 +47,6 @@ const mainRoutes = require('./routes/mainRoutes')
 app.use('/', mainRoutes)
 const authRoutes = require('./routes/authRoutes');
 app.use('/', authRoutes)
-
-//app.use("/img", express.static(path.join(__dirname, "/public/img")));
 
 conn
     .sync()

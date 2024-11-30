@@ -14,6 +14,7 @@ router.get('/register', authRegister.registerPage);
 router.post('/registerNewUser', authRegister.registerNewUser)
 
 router.get ('/reset', authRegister.resetPasswordPage);
+router.post('/resetPassword', authRegister.resetPassword)
 
 router.get('*', authError.errorPage);
 

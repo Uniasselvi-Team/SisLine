@@ -39,7 +39,6 @@ class authLogin {
 
         res.render('dashboard/dashboard', {user})
     }
-
 }
 
 class authRegister {
@@ -83,6 +82,18 @@ class authRegister {
             console.log(error)
         }
     }
+
+    static async resetPassword (req, res) {
+        const email = req.body.email
+        const user = await User.findOne({where: {email:email}})
+        if (!user) {
+            req.flash('message', 'Email não encontrado.')
+            res.render('auth/reset', {layout: 'main'})
+        } else {
+            req.flash('message', 'Confirme sua caixa de email.')
+            res.render('auth/reset', {layout: 'main'})
+        }
+    }
 }
 
 class authError {
@@ -90,7 +101,5 @@ class authError {
         res.render('auth/error', {layout: 'error'})
     }
 }
-
-
 
 module.exports = {authLogin, authRegister, authError};

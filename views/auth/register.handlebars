@@ -1,43 +1,48 @@
+<div class="login-box">
+  
+    {{#if messages.message}}
+    <div class="message">
+      {{messages.message}}
+    </div>
+  {{/if}}
 
-      <div class="login-box">
-        <form class="login-form">
-          <div class="header">
-            <h3>Register</h3>
-           </div>
-
-          <div class="input-group">
-            <label for="username">User name</label>
-            <div class="input-wrapper">
-              <input id="username" name="username" type="text" placeholder="Enter user name" required>
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24">
-                <!-- SVG content -->
-              </svg>
-            </div>
-          </div>
-
-          <div class="input-group">
-            <label for="email">E-mail</label>
-            <div class="input-wrapper">
-              <input id="email" name="email" type="email" placeholder="Enter e-mail" required>
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 128 128">
-                <!-- SVG content -->
-              </svg>
-            </div>
-          </div>
-
-          <div class="input-group">
-            <label for="password">Password</label>
-            <div class="input-wrapper">
-              <input id="password" name="password" type="password" placeholder="Enter password" required>
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 128 128">
-                <!-- SVG content -->
-              </svg>
-            </div>
-          </div>
-
-          <div class="actions">
-            <button type="submit" class="login-button">Submit</button>
-          </div>
-        </form>
+  <form class="login-form" action="registerNewUser" method="post">
+    <div class="header">
+      <h3>Register</h3>
       </div>
- 
+
+    <div class="input-group">
+      <label for="name">Full name</label>
+      <div class="input-wrapper">
+        <input id="name" name="name" type="text" placeholder="Enter user name" required>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24">
+          <!-- SVG content -->
+        </svg>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="email">E-mail</label>
+      <div class="input-wrapper">
+        <input id="email" name="email" type="email" placeholder="Enter e-mail" required>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 128 128">
+          <!-- SVG content -->
+        </svg>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="password">Password</label>
+      <div class="input-wrapper">
+        <input id="password" name="password" type="password" placeholder="Enter password" required>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 128 128">
+          <!-- SVG content -->
+        </svg>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="login-button">Submit</button>
+    </div>
+  </form>
+</div>

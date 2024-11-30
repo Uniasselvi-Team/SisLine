@@ -47,17 +47,49 @@ class authRegister {
     static registerPage (req, res) {
         res.render('auth/register', {layout: 'main'})
     }
-}
 
-class authReset {
-
-    static resetPage (req, res) {
+    static resetPasswordPage (req, res) {
         res.render('auth/reset', {layout: 'main'})
+    }
+
+    static async registerNewUser (req, res) {
+        const {name, password, email, confirmpassword } = req.body
+
+        if( password != confirmpassword) {
+            req.flash('message', 'As senhas não conferem, tente novamente!')
+            res.render('auth/register', {layout: 'main'});
+            return
+        }
+
+        // Criar senha
+        const salt = bcrypt.genSaltSync(10);
+        const hashedPassword = bcrypt.hashSync(password, salt);
+
+        const user = {
+            userCode: Math.floor(Math.random()*10000),
+            name,
+            email,
+            password: hashedPassword,
+            role: null,
+            createdAt: now(),
+            updatedAt: null
+        }
+
+        try {
+            const createdUser = await User.create(user)
+            const userId = createdUser.id
+            const newUser = await User.findOne({where: {id:userId}})
+
+            req.flash('message', `Cadastro realizado com sucesso. Seu código de usuário é ${newUser.userCode}`)
+            res.render('auth/login', {layout: 'main'})
+
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 
 class authError {
-
     static errorPage (req, res) {
         res.render('auth/error', {layout: 'error'})
     }
@@ -65,4 +97,4 @@ class authError {
 
 
 
-module.exports = {authLogin, authRegister, authReset, authError};
+module.exports = {authLogin, authRegister, authError};

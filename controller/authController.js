@@ -37,7 +37,7 @@ class authLogin {
         req.session.userid = user.id
         req.session.save()
 
-        res.render('dashboard/dashboard', {user})
+        res.render('dashboard/mainDashboard', {user})
     }
 }
 
@@ -96,10 +96,4 @@ class authRegister {
     }
 }
 
-class authError {
-    static errorPage (req, res) {
-        res.render('auth/error', {layout: 'error'})
-    }
-}
-
-module.exports = {authLogin, authRegister, authError};
+module.exports = {authLogin, authRegister};

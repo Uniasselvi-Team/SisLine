@@ -45,8 +45,17 @@ app.use(express.static('public'));
 
 const mainRoutes = require('./routes/mainRoutes')
 app.use('/', mainRoutes)
+
 const authRoutes = require('./routes/authRoutes');
 app.use('/', authRoutes)
+
+const dashboardRoutes = require('./routes/dashboardRoutes');
+app.use('/dashboard', dashboardRoutes)
+
+// Página 404
+app.use(function(req, res) {
+    res.status(404).render('auth/error.handlebars', {layout: 'error'})
+})
 
 conn
     .sync()

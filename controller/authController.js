@@ -37,7 +37,8 @@ class authLogin {
         req.session.userid = user.id
         req.session.save()
 
-        res.render('dashboard/mainDashboard', {user})
+        const userColumns = user.dataValues.name.split(' ')[0]
+        res.render('dashboard/mainDashboard', {userColumns})
     }
 }
 
